@@ -1,0 +1,17 @@
+<div class="contact-list">
+    {{#each contacts}}
+        <div class="contact-row">
+            {{#if ../allowClick}}
+                <a href="/Update?name={{this.name}}&phone={{this.phone}}" class="contact-link">
+                <span class="c-name">{{this.name}}</span>
+                <span class="c-phone">{{this.phone}}</span>
+                </a>
+            {{else}}
+                <div class="contact-disabled">
+                    <span class="c-name">{{this.name}}</span>
+                    <span class="c-phone">{{this.phone}}</span>
+                </div>
+            {{/if}}
+        </div>
+    {{/each}}
+</div>

@@ -1,0 +1,59 @@
+body {
+    font-family: sans-serif;
+    padding: 20px;
+}
+
+.container {
+    width: 400px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.contact-row {
+    border: 1px solid #aaa;
+    margin-bottom: 5px;
+    background: #eee;
+}
+
+.contact-link, .contact-disabled {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+}
+
+.contact-link:hover {
+    background: #ddd;
+    cursor: pointer;
+}
+
+.controls, .controls-form {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #ccc;
+}
+
+input {
+    display: block;
+    width: 95%;
+    margin-bottom: 5px;
+    padding: 5px;
+}
+
+.buttons {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+}
+
+.btn {
+    padding: 5px 15px;
+    cursor: pointer;
+    text-decoration: none;
+    border: 1px solid #888;
+    background: #f9f9f9;
+    color: black;
+    font-size: 13px;
+}
