@@ -2,6 +2,7 @@ const express = require('express');
 const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser');
 const fs = require('fs');
+const path = require('path');
 const app = express();
 
 let phonebookData =[];
@@ -10,7 +11,7 @@ try {
     const data = fs.readFileSync('./phonebook.json', 'utf8');
     phonebookData = JSON.parse(data);
 } catch (err) {
-    console.error("Файл не найден или пуст, начинаем с пустого справочника.");
+    console.error("Файл не найден");
 }
 
 const hbs = exphbs.create({
@@ -37,7 +38,7 @@ function savePhonebook(newData) {
     phonebookData = newData;
 
     fs.writeFile('./phonebook.json', JSON.stringify(phonebookData, null, 2), (err) => {
-        if (err) console.log("Фоновая запись в файл не удалась (Render):", err.message);
+        if (err) console.log("Ошибка:", err.message);
     });
 }
 
@@ -83,7 +84,11 @@ app.post('/Delete', (req, res) => {
     res.redirect('/');
 });
 
+app.get('/json', (req, res) => {
+    res.sendFile(path.join(__dirname, 'phonebook.json'));
+});
+
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
-    console.log(`Сервер запущен на порту ${PORT}...`);
+    console.log(`Сервер запущен на порту ${PORT}`);
 });
